@@ -1,17 +1,32 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
+import { DatePicker, Popconfirm, message } from 'antd';
+import 'antd/dist/antd.css'; 
 
-const styles = {
-  fontFamily: 'sans-serif',
-  textAlign: 'center',
-};
+
+
+function confirm(e) {
+  console.log(e);
+  message.success('Click on Yes');
+}
+
+function cancel(e) {
+  console.log(e);
+  message.error('Click on No');
+}
+
+
 
 const App = () => (
-  <div style={styles}>
-    <Hello name="CodeSandbox" />
-    <h2>eejej make  {'\u2728'}</h2>
+  <div>
+    <h2 align="center">hello this is working </h2>
+    <DatePicker />
+
+    <Popconfirm title="Are you sure delete this task?" onConfirm={confirm} onCancel={cancel} okText="Yes" cancelText="No">
+    <a href="#">Delete</a>
+  </Popconfirm>
   </div>
 );
 
-render(<App />, document.getElementById('root'));
+render(<App />,document.getElementById('root'));
